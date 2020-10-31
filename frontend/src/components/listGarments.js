@@ -2,22 +2,20 @@
 import React from 'react';
 
 // Redux
-import { connect } from "react-redux"
+import { connect } from 'react-redux'
+import Masonry from 'react-masonry-component'
 
 class ListGarments extends React.Component {
   render() {
-    let { garments } = this.props;
+    const garments = this.props.garments.map(g => {
+      return (<div class="garmentItem">
+        <img src={g.images[0].url}/>
+      </div>)
+    });
 
-    return (
-      <ul id="taskList">
-        {garments.map(g => {
-          return <li key={g._id}>
-            {g.product_title}
-          </li>
-        })}
-      </ul>
-    );
-
+    return (<Masonry>
+      { garments }
+    </Masonry>)
   }
 }
 

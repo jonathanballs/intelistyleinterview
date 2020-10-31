@@ -26,20 +26,21 @@
   padding: 0;
 }
 
-#taskList > li {
-  text-align: left;
-}
-
 #taskList > input {
   height: 2em;
 }
 
 #taskViewer {
-  width: 500px;
+  width: 900px;
   max-width: 90%;
 }
 
 #newTaskInput {
-  width: 100%;
+  width: 80%;
   height: 30px;
+  margin-bottom: 2em;
+}
+
+.garmentItem > img {
+  width: 150px;
 }

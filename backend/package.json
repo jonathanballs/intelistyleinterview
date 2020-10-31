@@ -10,7 +10,8 @@
         "body-parser": "^1.19.0",
         "express": "^4.17.1",
         "express-http-proxy": "^1.6.2",
-        "mongoose": "^5.10.8"
+        "mongoose": "^5.10.8",
+        "react-masonry-component": "^6.2.1"
     },
     "devDependencies": {
         "@babel/core": "^7.11.6",
