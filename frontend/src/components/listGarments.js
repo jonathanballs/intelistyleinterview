@@ -9,12 +9,16 @@ class ListGarments extends React.Component {
   render() {
     const garments = this.props.garments.map(g => {
       return (<div class="garmentItem">
-        <img src={g.images[0].url}/>
+        <a href={g.url}>
+          <img src={!!g.images.length ? g.images[0].url : ""} alt={g.product_title}/>
+        </a>
       </div>)
     });
 
-    return (<Masonry>
-      { garments }
+    return (<Masonry
+      ref={function (c) { this.masonry = this.masonry || c.masonry; }.bind(this)}
+      isAnimated={ true }>
+      {garments}
     </Masonry>)
   }
 }

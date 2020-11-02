@@ -8,8 +8,9 @@ import { connect } from "react-redux"
 // Components
 import SearchGarments from './components/searchGarments'
 import ListGarments from './components/listGarments'
+import loadingSpinner from './components/loading.svg'
 
-import { fetchGarments } from './actions/todo';
+import { fetchGarments } from './actions/garments';
 
 class App extends React.Component {
   async componentDidMount() {
@@ -20,13 +21,18 @@ class App extends React.Component {
   }
 
   render() {
+    const loading = this.props.loading;
+
     return (
         <div className="App">
           <header className="App-header">
             <img src="logo.png" className="App-logo" alt="logo" />
             <div id="taskViewer">
               <SearchGarments />
-              <ListGarments />
+              { loading
+                ? <img src={loadingSpinner} alt="Loading spinner" />
+                : <ListGarments />
+              }
             </div>
           </header>
         </div>

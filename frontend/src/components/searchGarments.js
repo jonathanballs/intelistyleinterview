@@ -3,7 +3,7 @@ import React from 'react';
 
 // Redux
 import { connect } from "react-redux"
-import { fetchGarments } from "../actions/todo"
+import { fetchGarments } from "../actions/garments"
 
 class SearchGarments extends React.Component {
   render() {

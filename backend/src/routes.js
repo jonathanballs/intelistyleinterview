@@ -8,21 +8,26 @@ const router = express.Router();
  */
 router.get('/', async (req, res, next) => {
   try {
-    res.json(await Garment.find().limit(20))
+    res.json(await Garment.find().limit(36))
   } catch (e) {
     next(e);
   }
 });
 
 /**
- * Get single garment
+ * Search garments
  */
 router.get('/search/', async (req, res, next) => {
   try {
     const query = req.query['q'];
     if (!query) return res.status(400);
 
-    const result = await Garment.find({$text: {$search: query}}).limit(20);
+    const result = await Garment.find(
+      { $text: { $search: query } },
+      { score: { $meta: "textScore" } }
+    ).sort( { score: { $meta: "textScore" } } )
+    .limit(36);
+
     res.json(result);
   } catch (e) {
     next(e);

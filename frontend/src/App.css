@@ -17,10 +17,6 @@
   color: black;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
 #taskList {
   list-style: none;
   padding: 0;
@@ -41,6 +37,6 @@
   margin-bottom: 2em;
 }
 
-.garmentItem > img {
+.garmentItem img {
   width: 150px;
 }
